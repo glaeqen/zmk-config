@@ -32,7 +32,7 @@
             label = "COMMA_DOT";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp DOT>;
-            mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         n2_up: n2_up {
             compatible = "zmk,behavior-mod-morph";
