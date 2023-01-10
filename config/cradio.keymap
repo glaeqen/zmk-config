@@ -32,35 +32,35 @@
             label = "COMMA_DOT";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp DOT>;
-            mods = <(MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
         };
         n2_up: n2_up {
             compatible = "zmk,behavior-mod-morph";
             label = "N2_UP";
             #binding-cells = <0>;
             bindings = <&kp N2>, <&kp UP>;
-            mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
         n5_down: n5_down {
             compatible = "zmk,behavior-mod-morph";
             label = "N5_DOWN";
             #binding-cells = <0>;
             bindings = <&kp N5>, <&kp DOWN>;
-            mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
         n4_left: n4_left {
             compatible = "zmk,behavior-mod-morph";
             label = "N4_LEFT";
             #binding-cells = <0>;
             bindings = <&kp N4>, <&kp LEFT>;
-            mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
         n6_right: n6_right {
             compatible = "zmk,behavior-mod-morph";
             label = "N6_RIGHT";
             #binding-cells = <0>;
             bindings = <&kp N6>, <&kp RIGHT>;
-            mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
     };
 
