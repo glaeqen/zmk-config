@@ -32,35 +32,21 @@
             label = "COMMA_DOT";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp DOT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_RALT)>;
         };
-        n2_up: n2_up {
+        home_pu: home_pu {
             compatible = "zmk,behavior-mod-morph";
-            label = "N2_UP";
+            label = "HOME_PU";
             #binding-cells = <0>;
-            bindings = <&kp N2>, <&kp UP>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            bindings = <&kp HOME>, <&kp PG_UP>;
+            mods = <(MOD_RALT)>;
         };
-        n5_down: n5_down {
+        end_pd: end_pd {
             compatible = "zmk,behavior-mod-morph";
-            label = "N5_DOWN";
+            label = "END_PD";
             #binding-cells = <0>;
-            bindings = <&kp N5>, <&kp DOWN>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-        n4_left: n4_left {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N4_LEFT";
-            #binding-cells = <0>;
-            bindings = <&kp N4>, <&kp LEFT>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-        n6_right: n6_right {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N6_RIGHT";
-            #binding-cells = <0>;
-            bindings = <&kp N6>, <&kp RIGHT>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            bindings = <&kp END>, <&kp PG_DN>;
+            mods = <(MOD_RALT)>;
         };
     };
 
@@ -82,7 +68,7 @@
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ A        │ S        │ D        │ F        │ G        │   │ H        │ J        │ K        │ L        │ Å        │
         //│          │ /        │ /        │ /        │ /        │   │ /        │ /        │ /        │ /        │          │
-        //│          │ RALT     │ LCTRL    │ LGUI     │ LALT     │   │ RALT     │ RGUI     │ RCTRL    │ RALT     │          │
+        //│          │ RALT     │ LCTRL    │ LGUI     │ LALT     │   │ LALT     │ RGUI     │ RCTRL    │ RALT     │          │
             &kp A     HRML(S,         D,         F,          G)        HRMR(H,      J,        K,         L)        &kp ARING
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , .      │ Ö        │ Ä        │
@@ -99,18 +85,16 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  1       │  2       │  3       │ INSERT   │   │ :        │ PAGE UP  │ PAGE DN  │ !        │          │
-        //│          │          │  /       │          │          │   │          │          │          │          │          │
-        //│          │          │  UP      │          │          │   │          │          │          │          │          │
-            &trans     &kp N1     &n2_up     &kp N3     &kp INS        &kp COLON &kp PG_UP  &kp PG_DN   &kp EXCL   &trans
+        //│          │  1       │  2       │  3       │ INSERT   │   │          │ HOME     │ UP       │ END      │
+        //│          │          │          │          │          │   │          │ /        │          │ /        │          │
+        //│          │          │          │          │          │   │          │ PAGE UP  │          │PAGE DOWN │          │
+            &trans     &kp N1     &kp N2     &kp N3     &kp INS        &trans    &home_pu    &kp UP    &end_pd     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │  4       │  5       │  6       │ DELETE   │   │          │          │          │          │          │
-        //│          │  /       │  /       │  /       │          │   │          │          │          │          │          │
-        //│          │  LEFT    │  DOWN    │  RIGHT   │          │   │          │          │          │          │          │
-            &trans     &n4_left   &n5_down   &n6_right  &kp DEL        &trans     &trans     &trans     &trans     &trans
+        //│          │  4       │  5       │  6       │ DELETE   │   │          │ LEFT     │ DOWN     │ RIGHT    │          │
+            &trans     &kp N4     &kp N5     &kp N6     &kp DEL        &trans     &kp LEFT   &kp DOWN  &kp RIGHT  &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │  7       │  8       │  9       │  0       │   │ ;        │ HOME     │ END      │ ?        │          │
-            &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp SEMI   &kp HOME   &kp END    &kp QMARK  &trans
+        //│          │  7       │  8       │  9       │  0       │   │ :        │ ;        │ ?        │ !        │          │
+            &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp COLON  &kp SEMI  &kp QMARK  &kp EXCL   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │          │ Esc      │   │ Esc      │          │
         //                                 │          │ /        │   │ /        │          │
