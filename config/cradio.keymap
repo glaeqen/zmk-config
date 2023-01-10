@@ -8,8 +8,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 // Home row mods macro
-#define HRML(k1,k2,k3,k4,k5) &ht LALT   k1 &ht RALT k2 &ht LCTRL k3 &ht LGUI k4 &ht LSHIFT k5
-#define HRMR(k1,k2,k3,k4,k5) &ht RSHIFT k1 &ht RGUI k2 &ht RCTRL k3 &ht RALT k4 &ht LALT   k5
+#define HRML(k1,k2,k3,k4) &ht RALT k1 &ht LCTRL k2 &ht LGUI k3  &ht LALT k4
+#define HRMR(k1,k2,k3,k4) &ht LALT k1 &ht RGUI  k2 &ht RCTRL k3 &ht RALT k4
 
 #define ARING RA(LEFT_BRACKET)
 #define ODIA RA(SEMI)
@@ -81,15 +81,17 @@
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ A        │ S        │ D        │ F        │ G        │   │ H        │ J        │ K        │ L        │ Å        │
-        //│ /        │ /        │ /        │ /        │ /        │   │ /        │ /        │ /        │ /        │ /        │
-        //│ LALT     │ RALT     │ LCTRL    │ LGUI     │ LSHIFT   │   │ RSHIFT   │ RGUI     │ RCTRL    │ RALT     │ LALT     │
-            HRML(A,        S,         D,         F,          G)        HRMR(H,      J,        K,         L,        ARING)
+        //│          │ /        │ /        │ /        │ /        │   │ /        │ /        │ /        │ /        │          │
+        //│          │ RALT     │ LCTRL    │ LGUI     │ LALT     │   │ RALT     │ RGUI     │ RCTRL    │ RALT     │          │
+            &kp A     HRML(S,         D,         F,          G)        HRMR(H,      J,        K,         L)        &kp ARING
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , .      │ Ö        │ Ä        │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M     &comma_dot  &kp ODIA   &kp ADIA
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │ L2 / TAB │ Space    │   │ Enter    │L1 / BSPC │
-                                            &lt 2 TAB   &kp SPACE     &kp ENTER  &lt 1 BSPC
+        //                                 │          │ /        │   │ /        │          │
+        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
+                                       &lt 2 TAB &ht LSHIFT SPACE   &ht RSHIFT ENTER  &lt 1 BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -110,8 +112,10 @@
         //│          │  7       │  8       │  9       │  0       │   │ ;        │ HOME     │ END      │ ?        │          │
             &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp SEMI   &kp HOME   &kp END    &kp QMARK  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │          │ Esc      │   │          │          │
-                                             &trans     &kp ESC        &trans     &trans
+        //                                 │          │ Esc      │   │ Esc      │          │
+        //                                 │          │ /        │   │ /        │          │
+        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
+                                             &trans   &ht LSHIFT ESC &ht RSHIFT ESC     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
          };
@@ -128,8 +132,8 @@
         //│          │ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
             &trans     &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │          │          │   │ Esc      │          │
-                                             &trans     &trans         &kp ESC    &trans
+        //                                 │          │          │   │          │          │
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
