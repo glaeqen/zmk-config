@@ -21,4 +21,4 @@ _in <ZMK_REPO>/app_
 `$ west build -d build/right -b nice_nano_v2 -- -DSHIELD=cradio_right -DZMK_CONFIG="<ZMK_CONFIG_PATH_IN_THE_CONTAINER>"`
 
 4. Install the firmware
-`udisksctl mount -b <DEV> && cp <PATH>/zmk.uf2 /run/media/glaeqen/NICENANO`
+`udisksctl mount -b /dev/disk/by-id/usb-Adafruit_nRF_UF2* && cp <PATH>/zmk.uf2 /run/media/glaeqen/NICENANO`
