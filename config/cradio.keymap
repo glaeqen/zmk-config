@@ -94,7 +94,9 @@
             &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp COLON  &kp SEMI  &kp QMARK  &kp EXCL   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │          │ Esc      │   │ Esc      │          │
-                                             &trans     &kp ESC        &kp ESC    &trans
+        //                                 │          │ /        │   │ /        │          │
+        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
+                                         &trans  &ht LSHIFT ESC     &ht RSHIFT ESC  &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
          };
@@ -113,7 +115,9 @@
             &trans     &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │          │ Esc      │   │ Esc      │          │
-                                             &trans     &kp ESC        &kp ESC    &trans
+        //                                 │          │ /        │   │ /        │          │
+        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
+                                         &trans  &ht LSHIFT ESC     &ht RSHIFT ESC  &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
