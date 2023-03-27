@@ -28,21 +28,21 @@
             label = "COMMA_DOT";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp DOT>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         home_pu: home_pu {
             compatible = "zmk,behavior-mod-morph";
             label = "HOME_PU";
             #binding-cells = <0>;
             bindings = <&kp HOME>, <&kp PG_UP>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         end_pd: end_pd {
             compatible = "zmk,behavior-mod-morph";
             label = "END_PD";
             #binding-cells = <0>;
             bindings = <&kp END>, <&kp PG_DN>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
