@@ -87,8 +87,10 @@
         //│          │          │          │          │          │   │          │ PAGE UP  │          │PAGE DOWN │          │
             &trans     &kp N1     &kp N2     &kp N3     &kp INS        &trans    &home_pu    &kp UP    &end_pd     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │  4       │  5       │  6       │ DELETE   │   PRINTSCREEN│ LEFT     │ DOWN     │ RIGHT    │          │
-            &trans     &kp N4     &kp N5     &kp N6     &kp DEL        &kp PSCRN  &kp LEFT   &kp DOWN  &kp RIGHT   &trans
+        //│          │  4       │  5       │  6       │ DELETE   │   │          │ LEFT     │ DOWN     │ RIGHT    │          │
+        //│          │          │ /        │ /        │          │   │          │ /        │ /        │          │          │
+        //│          │          │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │          │          │
+            &trans     &kp N4  &ht LCTRL N5 &ht LGUI N6 &kp DEL     &trans  &ht RGUI LEFT &ht RCTRL DOWN  &kp RIGHT   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │  7       │  8       │  9       │  0       │   │ !        │ :        │ ;        │ ?        │          │
             &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp EXCL   &kp COLON  &kp SEMI   &kp QMARK  &trans
@@ -109,7 +111,9 @@
             &kp TILDE  &kp LT     &kp DLLR   &kp GT     &kp AT         &kp EQL    &kp LBKT   &kp UNDER  &kp RBKT   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │ (        │ "        │ )        │ #        │   │ &        │ {        │ -        │ }        │          │
-            &trans     &kp LPRN   &kp DQT    &kp RPRN   &kp HASH       &kp AMPS   &kp LBRC   &kp MINUS  &kp RBRC   &trans
+        //│          │          │ /        │ /        │          │   │          │ /        │ /        │          │          │
+        //│          │          │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │          │          │
+            &trans &kp LPRN   &ht LCTRL DQT &ht LGUI RPRN &kp HASH &kp AMPS &ht RGUI LBRC &ht RCTRL MINUS &kp RBRC   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
             &trans     &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH   &trans
