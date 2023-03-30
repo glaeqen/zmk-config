@@ -115,8 +115,8 @@
         //│          │          │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │          │          │
             &trans &kp LPRN   &ht LCTRL DQT &ht LGUI RPRN &kp HASH &kp AMPS &ht RGUI LBRC &ht RCTRL MINUS &kp RBRC   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
-            &trans     &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH   &trans
+        //PRINTSCREEN│ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
+            &kp PSCRN  &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //                                 │          │ Esc      │   │ Esc      │          │
         //                                 │          │ /        │   │ /        │          │
