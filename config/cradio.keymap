@@ -28,21 +28,7 @@
             label = "COMMA_DOT";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp DOT>;
-            mods = <(MOD_RALT)>;
-        };
-        home_pu: home_pu {
-            compatible = "zmk,behavior-mod-morph";
-            label = "HOME_PU";
-            #binding-cells = <0>;
-            bindings = <&kp HOME>, <&kp PG_UP>;
-            mods = <(MOD_RALT)>;
-        };
-        end_pd: end_pd {
-            compatible = "zmk,behavior-mod-morph";
-            label = "END_PD";
-            #binding-cells = <0>;
-            bindings = <&kp END>, <&kp PG_DN>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_RALT|MOD_RSFT|MOD_LSFT)>;
         };
     };
 
@@ -67,6 +53,8 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
+        //                                                                      V--------------------------------V
+        //                                                                        Print Screen (combo U + I + O)
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
@@ -91,21 +79,21 @@
         right_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  1       │  2       │  3       │ INSERT   │   │          │ HOME     │ UP       │ END      │
-        //│          │          │          │          │          │   │          │ /        │          │ /        │          │
-        //│          │          │          │          │          │   │          │ PAGE UP  │          │ PAGE DOWN│          │
-            &trans     &kp N1     &kp N2     &kp N3     &kp INS        &trans    &home_pu    &kp UP    &end_pd     &trans
+        //│          │  1       │  2       │  3       │ INSERT   │   │ HOME     │ PAGE UP  │ UP       │ PAGE DOWN│ END      │
+            &trans     &kp N1     &kp N2     &kp N3     &kp INS        &kp HOME  &kp PG_UP    &kp UP   &kp PG_DN   &kp END
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │  4       │  5       │  6       │ Delete   │   │Backspace │ LEFT     │ DOWN     │ RIGHT    │          │
+        //│          │  4       │  5       │  6       │ TAB      │   │ Esc      │ LEFT     │ DOWN     │ RIGHT    │          │
         //│          │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │          │
         //│          │ LALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ LALT     │          │
-            &trans &ht LALT N4  &ht LCTRL N5 &ht LGUI N6 &kp DEL      &kp BSPC  &ht RGUI LEFT &ht RCTRL DOWN &ht LALT RIGHT   &trans
+            &trans &ht LALT N4  &ht LCTRL N5 &ht LGUI N6 &kp TAB      &kp ESC   &ht RGUI LEFT &ht RCTRL DOWN &ht LALT RIGHT   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │  7       │  8       │  9       │  0       │   │ !        │ :        │ ;        │ ?        │          │
             &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp EXCL   &kp COLON  &kp SEMI   &kp QMARK  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │ TAB      │          │   │          │          │
-                                             &kp TAB    &trans        &trans     &trans
+        //                                 │ Delete   │          │   │          │          │
+        //                                 │ /        │          │   │          │          │
+        //                                 │ LSHIFT   │          │   │          │          │
+                                           &ht LSHIFT DEL  &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
          };
@@ -125,8 +113,8 @@
         //│          │ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
             &trans  &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │          │          │   │          │ Esc      │
-                                            &trans      &trans         &trans     &kp ESC
+        //                                 │          │          │   │          │Backspace │
+                                            &trans      &trans         &trans     &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
