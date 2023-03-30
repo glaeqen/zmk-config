@@ -46,6 +46,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_print_screen {
+            timeout-ms = <90>;
+            key-positions = <6 7 8>;
+            bindings = <&kp PSCRN>;
+        };
+    };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
