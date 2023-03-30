@@ -72,17 +72,17 @@
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ A        │ S        │ D        │ F        │ G        │   │ H        │ J        │ K        │ L        │ Å        │
-        //│ /        │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │ /        │
-        //│ LALT     │ RALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ RALT     │ LALT     │
-          &ht LALT A &ht RALT S &ht LCTRL D &ht LGUI F  &kp G          &kp H    &ht RGUI J &ht RCTRL K &ht RALT L &ht LALT ARING
+        //│          │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │          │
+        //│          │ LALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ LALT     │          │
+            &kp A    &ht LALT S &ht LCTRL D &ht LGUI F  &kp G          &kp H    &ht RGUI J &ht RCTRL K &ht LALT L &kp ARING
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , .      │ Ö        │ Ä        │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M     &comma_dot  &kp ODIA   &kp ADIA
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │ TAB / L2 │ Space    │   │ Enter    │BSPC / L1 │
+        //                                 │ Shift    │ Space    │   │ Enter    │ RALT     │
         //                                 │          │ /        │   │ /        │          │
-        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
-                                       &lt 2 TAB &ht LSHIFT SPACE   &ht RSHIFT ENTER  &lt 1 BSPC
+        //                                 │          │ L2       │   │ L1       │          │
+                                           &kp LSHIFT  &lt 2 SPACE    &lt 1 ENTER  &kp RALT
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -93,21 +93,19 @@
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │  1       │  2       │  3       │ INSERT   │   │          │ HOME     │ UP       │ END      │
         //│          │          │          │          │          │   │          │ /        │          │ /        │          │
-        //│          │          │          │          │          │   │          │ PAGE UP  │          │PAGE DOWN │          │
+        //│          │          │          │          │          │   │          │ PAGE UP  │          │ PAGE DOWN│          │
             &trans     &kp N1     &kp N2     &kp N3     &kp INS        &trans    &home_pu    &kp UP    &end_pd     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │  4       │  5       │  6       │ DELETE   │   │          │ LEFT     │ DOWN     │ RIGHT    │          │
-        //│          │          │ /        │ /        │          │   │          │ /        │ /        │          │          │
-        //│          │          │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │          │          │
-            &trans     &kp N4  &ht LCTRL N5 &ht LGUI N6 &kp DEL     &trans  &ht RGUI LEFT &ht RCTRL DOWN  &kp RIGHT   &trans
+        //│          │  4       │  5       │  6       │ Delete   │   │Backspace │ LEFT     │ DOWN     │ RIGHT    │          │
+        //│          │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │          │
+        //│          │ LALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ LALT     │          │
+            &trans &ht LALT N4  &ht LCTRL N5 &ht LGUI N6 &kp DEL      &kp BSPC  &ht RGUI LEFT &ht RCTRL DOWN &ht LALT RIGHT   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │  7       │  8       │  9       │  0       │   │ !        │ :        │ ;        │ ?        │          │
             &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp EXCL   &kp COLON  &kp SEMI   &kp QMARK  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │          │ Esc      │   │ Esc      │          │
-        //                                 │          │ /        │   │ /        │          │
-        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
-                                         &trans  &ht LSHIFT ESC     &ht RSHIFT ESC  &trans
+        //                                 │ TAB      │          │   │          │          │
+                                             &kp TAB    &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
          };
@@ -120,17 +118,15 @@
             &kp TILDE  &kp LT     &kp DLLR   &kp GT     &kp AT         &kp EQL    &kp LBKT   &kp UNDER  &kp RBKT   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │ (        │ "        │ )        │ #        │   │ &        │ {        │ -        │ }        │          │
-        //│          │          │ /        │ /        │          │   │          │ /        │ /        │          │          │
-        //│          │          │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │          │          │
-            &trans &kp LPRN   &ht LCTRL DQT &ht LGUI RPRN &kp HASH &kp AMPS &ht RGUI LBRC &ht RCTRL MINUS &kp RBRC   &trans
+        //│          │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │          │
+        //│          │ LALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ LALT     │          │
+            &trans &ht LALT LPRN   &ht LCTRL DQT &ht LGUI RPRN &kp HASH &kp AMPS &ht RGUI LBRC &ht RCTRL MINUS &ht LALT RBRC   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //PRINTSCREEN│ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
-            &kp PSCRN  &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH   &trans
+        //│          │ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
+            &trans  &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │          │ Esc      │   │ Esc      │          │
-        //                                 │          │ /        │   │ /        │          │
-        //                                 │          │ LSHIFT   │   │ RSHIFT   │          │
-                                         &trans  &ht LSHIFT ESC     &ht RSHIFT ESC  &trans
+        //                                 │          │          │   │          │ Esc      │
+                                            &trans      &trans         &trans     &kp ESC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
