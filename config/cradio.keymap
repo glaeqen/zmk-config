@@ -144,7 +144,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │ BT/USB   │          │          │          │  RESET   │
-            &reset     &trans     &trans    &trans  &bt BT_SEL 0    &out OUT_TOG  &trans     &trans     &trans      &reset
+          &sys_reset   &trans     &trans    &trans  &bt BT_SEL 0    &out OUT_TOG  &trans     &trans     &trans      &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │ EXT_PWR  │          │          │          │BOOTLOADER│
           &bootloader  &trans     &trans    &trans  &bt BT_SEL 1  &ext_power EP_TOG   &trans  &trans     &trans    &bootloader
