@@ -32,15 +32,6 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-        combo_print_screen {
-            timeout-ms = <90>;
-            key-positions = <6 7 8>;
-            bindings = <&kp PSCRN>;
-        };
-    };
-
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
@@ -51,55 +42,62 @@
 
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+        layer_zero {
             bindings = <
-        //                                                                      V--------------------------------V
-        //                                                                        Print Screen (combo U + I + O)
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I       &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ A        │ S        │ D        │ F        │ G        │   │ H        │ J        │ K        │ L        │ Å        │
-        //│          │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │          │
-        //│          │ LALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ LALT     │          │
-            &kp A    &ht LALT S &ht LCTRL D &ht LGUI F  &kp G          &kp H    &ht RGUI J &ht RCTRL K &ht LALT L &kp ARING
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │BACKSPACE │
+            &kp A      &kp S      &kp D      &kp F      &kp G          &kp H      &kp J      &kp K       &kp L      &kp BACKSPACE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , .      │ Ö        │ Ä        │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M     &comma_dot  &kp ODIA   &kp ADIA
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │  ,       │  ENTER   │  DELETE  │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp ENTER   &kp DEL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │ Shift    │ Space    │   │ Enter    │ RALT     │
-        //                                 │          │ /        │   │ /        │          │
-        //                                 │          │ L2       │   │ L1       │          │
-                                           &kp LSHIFT  &lt 2 SPACE    &lt 1 ENTER  &kp RALT
+        //                                 │ L2       │ Shift    │   │ Space    │ L1       │
+                                             &mo 2      &kp LSHIFT     &kp SPACE  &mo 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
 
+        layer_zero_alt {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│          │          │  Ę       │          │          │   │  PSCRN   │          │          │  Ó       │          │
+            &trans      &trans    &kp RA(E)  &trans      &trans        &kp PSCRN  &trans     &trans     &kp RA(O)  &trans
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Ą       │  Ś       │  LALT    │  LGUI    │  LCTRL   │   │  RCTRL   │  RGUI    │  LALT    │  Ł       │  Å       │
+            &kp RA(A)  &kp RA(S)   &kp LALT  &kp LGUI   &kp LCTRL     &kp RCTRL   &kp RGUI  &kp LALT   &kp RA(L)   &kp ARING
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Ż       │  Ź       │  Ć       │          │ &sl L_FN │   │  Ń       │          │  .       │  Ö       │  Ä       │
+            &kp RA(Z)  &kp RA(X)  &kp RA(C)  &trans     &sl 3         &kp RA(N)   &trans    &kp PERIOD  &kp ODIA   &kp ADIA
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &trans      &trans       &trans      &trans
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+        
+
         // L1 (Right)
-        right_layer {
+        layer_one {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │  1       │  2       │  3       │ INSERT   │   │ HOME     │ PAGE UP  │ UP       │ PAGE DOWN│ END      │
             &trans     &kp N1     &kp N2     &kp N3     &kp INS        &kp HOME  &kp PG_UP    &kp UP   &kp PG_DN   &kp END
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │  4       │  5       │  6       │ TAB      │   │ Esc      │ LEFT     │ DOWN     │ RIGHT    │          │
-        //│          │ /        │ /        │ /        │          │   │          │ /        │ /        │ /        │          │
-        //│          │ LALT     │ LCTRL    │ LGUI     │          │   │          │ RGUI     │ RCTRL    │ LALT     │          │
-            &trans &ht LALT N4  &ht LCTRL N5 &ht LGUI N6 &kp TAB      &kp ESC   &ht RGUI LEFT &ht RCTRL DOWN &ht LALT RIGHT   &trans
+            &trans     &kp N4      &kp N5     &kp N6    &kp TAB       &kp ESC       &kp LEFT     &kp DOWN     &kp RIGHT   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │  7       │  8       │  9       │  0       │   │ !        │ :        │ ;        │ ?        │          │
             &trans     &kp N7     &kp N8     &kp N9     &kp N0         &kp EXCL   &kp COLON  &kp SEMI   &kp QMARK  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │ Delete   │          │   │          │          │
-        //                                 │ /        │          │   │          │          │
-        //                                 │ LSHIFT   │          │   │          │          │
-                                           &ht LSHIFT DEL  &trans        &trans     &trans
+                                           &trans       &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
          };
 
         // L2 (Left)
-        left_layer {
+        layer_two {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ~        │ <        │ $        │  >       │ @        │   │ =        │ [        │ _        │ ]        │ `        │
@@ -113,8 +111,7 @@
         //│          │ +        │ *        │ |        │ '        │   │ %        │ /        │ ^        │ \        │          │
             &trans  &kp PLUS   &kp ASTRK  &kp PIPE   &kp SQT        &kp PRCNT  &kp FSLH   &kp CARET  &kp BSLH     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-        //                                 │          │          │   │          │Backspace │
-                                            &trans      &trans         &trans     &kp BSPC
+                                            &trans      &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
